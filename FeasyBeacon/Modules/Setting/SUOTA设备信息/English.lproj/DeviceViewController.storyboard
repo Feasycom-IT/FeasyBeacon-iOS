@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Device info-->
+        <scene sceneID="w3i-Hy-7Q8">
+            <objects>
+                <viewController storyboardIdentifier="DeviceViewController" modalPresentationStyle="fullScreen" id="QFD-sT-hjh" customClass="DeviceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sRL-V2-dcp"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Tz-mG-dql"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vbE-BG-e8U">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYU-Nb-V4Q">
+                                <rect key="frame" x="16" y="748" width="361" height="54"/>
+                                <color key="backgroundColor" red="0.1647058824" green="0.15686274510000001" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="Mdj-jC-UeF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Update">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="updateButtonAction:" destination="QFD-sT-hjh" eventType="touchUpInside" id="cQQ-Nm-Axr"/>
+                                </connections>
+                            </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aU2-JO-mvh">
+                                <rect key="frame" x="0.0" y="79" width="393" height="290"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="290" id="qgD-b9-q7C"/>
+                                </constraints>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NoV-vT-uoi"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="aU2-JO-mvh" firstAttribute="leading" secondItem="vbE-BG-e8U" secondAttribute="leadingMargin" constant="-16" id="4Y9-6Q-Xdr"/>
+                            <constraint firstItem="7Tz-mG-dql" firstAttribute="top" secondItem="yYU-Nb-V4Q" secondAttribute="bottom" constant="16" id="61W-gA-wWB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aU2-JO-mvh" secondAttribute="trailing" constant="-16" id="EaT-FW-pww"/>
+                            <constraint firstAttribute="trailing" secondItem="yYU-Nb-V4Q" secondAttribute="trailing" constant="16" id="GTU-Sa-6d7"/>
+                            <constraint firstItem="aU2-JO-mvh" firstAttribute="top" secondItem="sRL-V2-dcp" secondAttribute="bottom" constant="20" id="N21-oo-3x5"/>
+                            <constraint firstItem="yYU-Nb-V4Q" firstAttribute="leading" secondItem="vbE-BG-e8U" secondAttribute="leading" constant="16" id="gTu-u7-dPP"/>
+                            <constraint firstItem="aU2-JO-mvh" firstAttribute="leading" secondItem="vbE-BG-e8U" secondAttribute="leadingMargin" constant="-16" id="mns-hJ-a6d"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Device info" id="mJy-yJ-zKM">
+                        <barButtonItem key="leftBarButtonItem" title="Disconnect" id="8jz-Ws-SwK">
+                            <connections>
+                                <action selector="disconnect:" destination="QFD-sT-hjh" id="sIc-fE-1Cr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="updateButton" destination="yYU-Nb-V4Q" id="XP6-H8-809"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tql-ua-p5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="404" y="-39"/>
+        </scene>
+    </scenes>
+</document>

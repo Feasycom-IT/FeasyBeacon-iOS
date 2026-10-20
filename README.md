@@ -1,14 +1,101 @@
-# FeasyBeacon-iOS
+# FeasyBeacon iOS App（SDK + Demo）
 
-FeasyBeacon iOS 示例工程、依赖及相关开发资料。
+FeasyBeacon 是飞易通 Beacon 设备的扫描、广播展示、参数配置和升级示例 App。本仓库提供 **应用层源码、预编译 SDK、Xcode 工程及中英文接口文档**。
 
-## 下载开发资料
+SDK 以静态库和公开头文件交付，不包含静态库的实现源码。
 
-前往 [Releases](https://github.com/Feasycom-IT/FeasyBeacon-iOS/releases/latest) 下载原始资料包 `feasybeacon-ios.zip`。
+> FeasyBeacon iOS application source with prebuilt SDK libraries, an Xcode workspace and Chinese/English SDK interface documents.
 
-资料包按原文件上传，包含完整目录结构、源码和 SDK。
+## 1. 下载 / Download
 
-## 文件校验
+- [完整开发资料包](https://github.com/Feasycom-IT/FeasyBeacon-iOS/releases/latest)
+- [浏览应用源码](FeasyBeacon)
+- [浏览 Beacon SDK](FeasyBeacon/SDK)
 
-- 文件大小：10,004,283 字节
-- SHA-256：`90270446d8edf62091aa61494ee6b3f37dfb50eb773094e4e1394fb0a15818cf`
+```bash
+git clone https://github.com/Feasycom-IT/FeasyBeacon-iOS.git
+```
+
+## 2. 引入 SDK / Add the SDK
+
+```text
+FeasyBeacon/
+├── SDK/
+│   ├── libFeasyBeacon.a
+│   ├── FBSDKPublicHeader.h
+│   ├── FBBluetoothBrowser.h
+│   └── ...
+└── CallbackSDK/
+    ├── libFeasyCallbackSDK.a
+    └── FeasyCallbackSDK.h
+```
+
+`libFeasyBeacon.a` 和 `libFeasyCallbackSDK.a` 当前均为 **iPhone 真机 arm64**。SDK 文件、资源和链接配置请按实际使用功能参照示例工程，不支持直接使用这两份库构建模拟器目标。
+
+Beacon SDK 的公开入口：
+
+```objc
+#import "FBSDKPublicHeader.h"
+```
+
+具体 API 以公开头文件及下方接口文档为准。
+
+## 3. 打开与编译 / Build
+
+使用 macOS 和 Xcode，打开 workspace：
+
+```bash
+open FeasyBeacon.xcworkspace
+```
+
+- Scheme：`FeasyBeacon`。
+- 主 App target 最低系统：iOS 12。
+- 应用版本：`2.1.8`；构建号：`20260917`。
+- Bundle ID：`com.feasycom.feasybeacon`。
+- 语言：Objective-C / UIKit，工程另配置 Swift 5。
+- 仓库包含 Pods 与 `Podfile.lock`；需要重装时在根目录运行 `pod install`。
+- 真机运行前选择自己的开发团队和可用的 Bundle ID，并按业务确认蓝牙、定位等权限。
+
+不签名的真机目标构建命令：
+
+```bash
+xcodebuild -workspace FeasyBeacon.xcworkspace -scheme FeasyBeacon \
+  -configuration Debug -destination 'generic/platform=iOS' \
+  CODE_SIGNING_ALLOWED=NO build
+```
+
+本次仓库整理验证了文件结构、SDK 架构、Podfile 语法和工程识别；未完成 App 编译或真机功能验收。
+
+## 4. SDK 文档 / Documents
+
+- [中文 SDK 接口文档（PDF）](FeasyBeacon/SDK/FBeacon_iOS_SDK接口文档.pdf)
+- [English SDK interface document（PDF）](<FeasyBeacon/SDK/FBeacon_iOS-SDK Interface Document.pdf>)
+- [中文工程接入说明](docs/FeasyBeacon_Integration_Guide_CN.md)
+- [English integration guide](docs/FeasyBeacon_Integration_Guide_EN.md)
+- [SDK 修订记录](FeasyBeacon/SDK/FBReadMe.md)
+- [应用版本记录](CHANGELOG.md)
+
+## 5. 目录结构 / Layout
+
+```text
+.
+├── FeasyBeacon/                # App 源码、资源、SDK 与第三方库
+│   ├── SDK/                    # Beacon SDK 静态库、头文件和接口 PDF
+│   └── CallbackSDK/            # 配套 Callback SDK
+├── FeasyBeacon.xcodeproj/
+├── FeasyBeacon.xcworkspace/
+├── FeasyBeaconTests/
+├── Pods/
+├── Podfile
+├── Podfile.lock
+├── docs/
+├── CHANGELOG.md
+└── README.md
+```
+
+## 6. 说明 / Notes
+
+- 源码、SDK 和接口文档可直接浏览或克隆；Releases 提供原始完整 ZIP 资料包。
+- SDK 的扫描类型区分 Beacon、Sensor 和 Setting，应用应根据业务选择对应类型。
+- 扫描、配置、传感器解析和 OTA 需要匹配的设备、模块和固件。
+- SDK 接口 PDF 与当前头文件可能来自不同修订，调用方法签名时请核对当前头文件。

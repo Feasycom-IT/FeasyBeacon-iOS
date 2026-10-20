@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  FeasyBeacon
+
+  Created by chenchanghua on 2024/10/29.
+  
+*/
+
+"Upload size" = "上传大小";
+"Block size" = "块大小";
+"Chunk size" = "块段大小";
+"Total blocks" = "总块数";
+"Total chunks" = "总块段数";
+"Chunks per block" = "每块的块段数";
+"Firmware CRC" = "固件CRC";
+"bytes" = "字节";
+
+"Enable status notifications" = "启用状态通知";
+"Set memory device" = "设置内存设备";
+"Set Gpio Map" = "设置GPIO映射";
+"Upload started" = "上传开始";
+"Set patch length" = "设置补丁长度";
+"Update completed in" = "上传完成，用时";
+"seconds" = "秒";
+"Send end signal" = "发送结束信号";
+"Send block" = "发送块";
+"chunk" = "块段";
+"size" = "大小";
+"SUOTA protocol error" = "SUOTA协议错误";
+"Block sent" = "块已发送";

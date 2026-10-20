@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  FeasyBeacon
+
+  Created by chenchanghua on 2024/10/29.
+  
+*/
+
+"Upload size" = "Upload size";
+"Block size" = "Block size";
+"Chunk size" = "Chunk size";
+"Total blocks" = "Total blocks";
+"Total chunks" = "Total chunks";
+"Chunks per block" = "Chunks per block";
+"Firmware CRC" = "Firmware CRC";
+"bytes" = "bytes";
+
+"Enable status notifications" = "Enable status notifications";
+"Set memory device" = "Set memory device";
+"Set Gpio Map" = "Set Gpio Map";
+"Upload started" = "Upload started";
+"Set patch length" = "Set patch length";
+"Update completed in" = "Update completed in";
+"seconds" = "seconds";
+"Send end signal" = "Send end signal";
+"Send block" = "Send block";
+"chunk" = "chunk";
+"size" = "size";
+"SUOTA protocol error" = "SUOTA protocol error";
+"Block sent" = "Block sent";
