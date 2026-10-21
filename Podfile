@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '15.0'
 
 target 'FeasyBeacon' do
   
@@ -10,6 +10,13 @@ target 'FeasyBeacon' do
 end
 
 post_install do |installer|
+  installer.pods_project.targets.each do |t|
+    t.build_configurations.each do |c|
+      c.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+      c.build_settings['CLANG_ENABLE_EXPLICIT_MODULES'] = 'NO'
+    end
+  end
+
   files = [
   'Pods/AFNetworking/AFNetworking/AFHTTPSessionManager.m',
   'Pods/AFNetworking/AFNetworking/AFNetworkReachabilityManager.m'
